@@ -47,9 +47,7 @@ const SettingsProvider = (props) => {
       case "short":
         setPomodoro(evaluate.short);
         break;
-      case "long":
-        setPomodoro(evaluate.long);
-        break;
+
       default:
         setPomodoro(0);
         break;

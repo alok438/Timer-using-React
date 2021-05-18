@@ -2,9 +2,8 @@ import React, { useContext, useState } from "react";
 import { SettingsContext } from "../context/Settings";
 const Set = () => {
   const [newTimer, setNewTimer] = useState({
-    work: 0.2,
-    short: 0.1,
-    long: 0.5,
+    work: 0,
+    short: 0,
     active: "work",
   });
 
@@ -25,12 +24,9 @@ const Set = () => {
           short: parseInt(value),
         });
         break;
-      case "longBreak":
-        setNewTimer({
-          ...newTimer,
-          long: parseInt(value),
-        });
-        break;
+
+      default:
+        setNewTimer(0);
     }
   };
   const handleSubmit = (e) => {
@@ -41,6 +37,7 @@ const Set = () => {
     <div className="form-container">
       <form noValidate onSubmit={handleSubmit}>
         <div className="input-wrapper">
+          <p>Set time needed for work</p>
           <input
             className="input"
             type="number"
@@ -48,6 +45,10 @@ const Set = () => {
             onChange={handleChange}
             value={newTimer.work}
           />
+          min
+        </div>
+        <div className="input-wrapper">
+          <p>Set time you will need for break</p>
           <input
             className="input"
             type="number"
@@ -55,15 +56,11 @@ const Set = () => {
             onChange={handleChange}
             value={newTimer.short}
           />
-          <input
-            className="input"
-            type="number"
-            name="longBreak"
-            onChange={handleChange}
-            value={newTimer.long}
-          />
+          min
         </div>
-        <button type="submit">Set Timer</button>
+        <button type="submit" className="btn">
+          Set Timer
+        </button>
       </form>
     </div>
   );

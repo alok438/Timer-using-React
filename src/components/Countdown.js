@@ -11,8 +11,8 @@ const Countdown = ({ key, timer, animate, children }) => {
       duration={timer * 60}
       colors={[
         ["#FE6F6B", 0.33],
-        ["#FE6F6B", 0.33],
-        ["#FE6F6B", 0.33],
+        ['#004777', 0.33], 
+        ['#A30000', 0.33],
       ]}
       strokeWidth={6}
       size={220}
